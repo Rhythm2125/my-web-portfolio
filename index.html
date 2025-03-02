@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/plugins/feature.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body class="template-color-1 home-sticky spybody" data-spy="scroll" data-bs-target=".navbar-example2" data-offset="150">
 
     <!-- start Header area -->
@@ -127,7 +126,8 @@
                                     </path>
                                     <rect x="2" y="9" width="4" height="12"></rect>
                                     <circle cx="4" cy="4" r="2"></circle>
-                                </svg></a>
+                                </svg>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -146,10 +146,10 @@
                                 <span>I am a</span>
                             <span class="cd-words-wrapper">
                                     <b class="is-visible">Web Developer.</b>
-                                    <b class="visible">Full Stacks Developer.</b>
-                                    <b class="visible">Python Developer.</b>
-                                    <b class="visble">CyberSecurity Expert.</b>
-                                    <b class="visible">AI Tools & Chatgpt Expert.</b>
+                                    <b class="is-hidden">Full Stacks Developer.</b>
+                                    <b class="is-hidden">Python Developer.</b>
+                                    <b class="is-hidden">CyberSecurity Expert.</b>
+                                    <b class="is-hidden">AI Tools & Chatgpt Expert.</b>
                                 </span>
                             </span>
                             <div class="button-area">
@@ -604,44 +604,37 @@
                     <div data-aos-delay="600" class="col-lg-7 contact-input">
                         <div class="contact-form-wrapper">
                             <div class="introduce">
-
-                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" method="POST" action="mail.php">
-
+                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" method="POST" action="js/mail.php">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
                                             <input class="form-control form-control-lg" name="contact-name" id="contact-name" type="text">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-phone">Phone Number</label>
                                             <input class="form-control" name="contact-phone" id="contact-phone" type="text">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-email">Email</label>
                                             <input class="form-control form-control-sm" id="contact-email" name="contact-email" type="email">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="subject">subject</label>
                                             <input class="form-control form-control-sm" id="subject" name="subject" type="text">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Your Message</label>
                                             <textarea name="contact-message" id="contact-message" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-12">
                                         <button name="submit" type="submit" id="submit" class="rn-btn">
                                             <span>SEND MESSAGE</span>
@@ -819,6 +812,26 @@
             }
 
         );
+
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+
+            fetch("js/mail.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "success") {
+                    alert("Message sent successfully!");
+                    document.getElementById("contact-form").reset();
+                } else {
+                    alert("Failed to send message.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
     </script>
 </body>
 </html>
