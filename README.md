@@ -1,4 +1,3 @@
-
 # Rhythm Jain - Web Portfolio
 
 Welcome to my personal web portfolio! This website showcases my skills, projects, and professional journey as a Full-Stack Developer, Python Developer, Cybersecurity Expert, and AI Tools Specialist.
