@@ -2,7 +2,7 @@
 
 Welcome to my personal web portfolio! This website showcases my skills, projects, and professional journey as a Full-Stack Developer, Python Developer, Cybersecurity Expert, and AI Tools Specialist.
 
-## 🌐 Live Demo
+## 🌐 Live Website
 
 Visit my portfolio: [Rhythm Jain Portfolio](https://rhythmjainportfolio.vercel.app/)
 
